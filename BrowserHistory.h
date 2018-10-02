@@ -1,4 +1,6 @@
 #pragma once
+#ifndef browserhistory_h
+#define browserhistory_h
 
 #include <iostream>
 #include <fstream>
@@ -49,3 +51,11 @@ void BrowserHistory::readHistory(string fileName) {
         }
     }
 }
+// Default Constructor
+BrowserHistory::BrowserHistory()
+{
+    
+}
+
+
+#endif
