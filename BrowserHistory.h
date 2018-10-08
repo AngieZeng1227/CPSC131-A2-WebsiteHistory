@@ -31,6 +31,7 @@ private:
 	int numSites;
 };
 
+// Read in the file
 void BrowserHistory::readHistory(string fileName) {
 	string temp;
 	int newTime;
@@ -54,6 +55,7 @@ void BrowserHistory::readHistory(string fileName) {
 		}
 	}
 }
+
 // Default Constructor
 BrowserHistory::BrowserHistory()
 {
@@ -61,9 +63,10 @@ BrowserHistory::BrowserHistory()
 	numSites = 0;
 }
 
-
+// Add new site to visited
 void BrowserHistory::visitSite(Webpage newSite)
 {
+	// Check if there are websites to delete from back/forward
 	while (navPos != --navHistory.end())
 	{
 		navHistory.pop_back();
@@ -80,19 +83,21 @@ void BrowserHistory::visitSite(Webpage newSite)
 		navPos++;
 }
 
+// Back 1 website
 string BrowserHistory::back()
 {
 	navPos--;
 	return navPos->getUrl();
 }
 
+// Forward
 string BrowserHistory::forward()
 {
 	navPos++;
 	return navPos->getUrl();
 }
 
-
+// Get url from list
 string BrowserHistory::getUrl()
 {
 	if (navHistory.empty()) 
@@ -101,12 +106,13 @@ string BrowserHistory::getUrl()
 	
 }
 
-
+// Return list of sites visited
 list<Webpage> BrowserHistory::getSitesVisited()
 {
 	return sitesVisited;
 }
 
+// Return the size of navHistory
 size_t BrowserHistory::getNavSize()
 {
 	return (navHistory.size());
