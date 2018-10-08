@@ -68,8 +68,8 @@ void BrowserHistory::visitSite(Webpage newSite)
 	{
 		navHistory.pop_back();
 
-		sitesVisited.insert(navPos, newSite);
-		navHistory.insert(navPos, newSite);
+		sitesVisited.push_back(newSite);
+		navHistory.push_back(newSite);
 		numSites++;
 
 		if (navHistory.size() != 1)
