@@ -18,12 +18,8 @@ private:
 };
 
 // The default constructor assigns a temporary string to the variable, url, 
-// and sets the time variable equal to 0 if both are not available at the time the program compiles
 Webpage::Webpage()
 {
-	url = "Blank (N/A)";
-	time = 0; 
-	
 }
 
 // Sets url and time accessed from the main function
