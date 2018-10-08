@@ -16,35 +16,30 @@ private:
 	string url;
 	time_t time;
 };
+
 // Default constructor 
 Webpage::Webpage()
 {
-
-
-
+	
 }
 
-// 
-Webpage::Webpage(const string& webpageUrl, const time_t& timeVisited);
+Webpage::Webpage(const string& webpageUrl, const time_t& timeVisited)
 {
-
-
-
+	url = webpageUrl;
+	time = timeVisited;
 }
 
-// The getUrl() member function gets a URL from the text file
 string Webpage::getUrl()
 {
-
-
+	return url;
 }
 
-// 
 time_t Webpage::getTime()
 {
-
-
+	return time;
 }
+
+
 
 
 #endif 
