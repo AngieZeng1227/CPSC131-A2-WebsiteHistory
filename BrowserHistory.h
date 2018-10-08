@@ -74,7 +74,7 @@ void BrowserHistory::visitSite(Webpage newSite)
 	navHistory.push_back(newSite);
 	numSites++;
 	
-	if(navHistory.size() != 1)
+	if(navHistory.size() == 1)
 		navPos = navHistory.begin();
 	else
 		navPos++;
