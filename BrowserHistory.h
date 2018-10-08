@@ -96,7 +96,7 @@ string BrowserHistory::forward()
 string BrowserHistory::getUrl()
 {
 	if (navHistory.empty()) 
-		throw std::logic_error("Empty website history.");
+		throw logic_error("Empty website history.");
 	return navPos->getUrl();
 	
 }
