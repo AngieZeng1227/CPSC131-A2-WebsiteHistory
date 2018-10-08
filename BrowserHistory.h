@@ -98,6 +98,7 @@ string BrowserHistory::getUrl()
 	
 }
 
+
 list<Webpage> BrowserHistory::getSitesVisited()
 {
 	return sitesVisited;
