@@ -80,13 +80,13 @@ void BrowserHistory::visitSite(Webpage newSite)
 string BrowserHistory::back()
 {
 	navPos--;
-	return navPos->getUrl;
+	return navPos->getUrl();
 }
 
 string BrowserHistory::forward()
 {
 	navPos++;
-	return navPos->getUrl;
+	return navPos->getUrl();
 }
 
 
@@ -94,7 +94,7 @@ string BrowserHistory::getUrl()
 {
 	if (navHistory.empty()) 
 		throw std::logic_error("Empty website history.");
-	return navPos->getUrl;
+	return navPos->getUrl();
 	
 }
 
