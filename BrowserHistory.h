@@ -25,13 +25,20 @@ public:
 	list<Webpage> getSitesVisited();
 
 private:
+	// The list, navHistory, keeps track of the user's browser history
 	list<Webpage> navHistory;
+	
+	// The list, navPos, keeps track of the user's position in the browser history
 	list<Webpage>::iterator navPos;
+	
+	// The list, sitesVisited, keeps track of the number of sites the user visited
 	list<Webpage> sitesVisited;
+	
+	// The numSites variable stores the number of websites the user visited
 	int numSites;
 };
 
-// Read in the file
+// The readHistory() member function reads in the browser history file 
 void BrowserHistory::readHistory(string fileName) {
 	string temp;
 	int newTime;
@@ -56,14 +63,15 @@ void BrowserHistory::readHistory(string fileName) {
 	}
 }
 
-// Default Constructor
+// The default constructor initializes the the value of numSites to 0 and sets navPos to the 
+// beginning of the list
 BrowserHistory::BrowserHistory()
 {
 	navPos = navHistory.begin();
 	numSites = 0;
 }
 
-// Add new site to visited
+// The visitSite() member function add the new site and the time it was accessed to the sitesVisited list
 void BrowserHistory::visitSite(Webpage newSite)
 {
 	// Check if there are websites to delete from back/forward
@@ -83,21 +91,22 @@ void BrowserHistory::visitSite(Webpage newSite)
 		navPos++;
 }
 
-// Back 1 website
+// The back() member function returns the user to the previous website they visited
 string BrowserHistory::back()
 {
 	navPos--;
 	return navPos->getUrl();
 }
 
-// Forward
+// The forward() member function returns the webpage that comes after the webpage the user access
 string BrowserHistory::forward()
 {
 	navPos++;
 	return navPos->getUrl();
 }
 
-// Get url from list
+// The getUrl() member function returns the webpage url given to the program through the text files.
+// Returns an error if the history contains no websites visited (No browser history).
 string BrowserHistory::getUrl()
 {
 	if (navHistory.empty()) 
@@ -106,13 +115,13 @@ string BrowserHistory::getUrl()
 	
 }
 
-// Return list of sites visited
+// The getSitesVisited() member function returns the number (list) of sites visited
 list<Webpage> BrowserHistory::getSitesVisited()
 {
 	return sitesVisited;
 }
 
-// Return the size of navHistory
+// The getNavSize() member function returns the size of the navHistory list 
 size_t BrowserHistory::getNavSize()
 {
 	return (navHistory.size());
