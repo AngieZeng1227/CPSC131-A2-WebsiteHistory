@@ -64,17 +64,20 @@ BrowserHistory::BrowserHistory()
 
 void BrowserHistory::visitSite(Webpage newSite)
 {
-	if (numSites > 1)
-	{	
-		while (navPos != --navHistory.end())
-		{
-			navHistory.pop_back();
-			numSites--;
-		}
+	while (navPos != --navHistory.end())
+	{
+		navHistory.pop_back();
+		numSites--;
 	}
+	
 	sitesVisited.push_back(newSite);
 	navHistory.push_back(newSite);
 	numSites++;
+	
+	if(navHistory.size() != 1)
+		navPos = navHistory.begin();
+	else
+		navPos++;
 }
 
 string BrowserHistory::back()
