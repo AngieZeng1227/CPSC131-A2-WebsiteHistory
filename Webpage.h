@@ -17,32 +17,33 @@ private:
 	time_t time;
 };
 
-// Default constructor 
+// The default constructor assigns a temporary string to the variable, url, 
+// and sets the time variable equal to 0 if both are not available at the time the program compiles
 Webpage::Webpage()
 {
+	url = "Blank (N/A)";
+	time = 0; 
 	
 }
 
-// Enter url and time visited into class
+// Sets url and time accessed from the main function
 Webpage::Webpage(const string& webpageUrl, const time_t& timeVisited)
 {
 	url = webpageUrl;
 	time = timeVisited;
 }
 
-// Return url
+// The getUrl() member function returns the url of the website
 string Webpage::getUrl()
 {
 	return url;
 }
 
-// Return time
+// The getTime() member function returns the time the website was accessed
 time_t Webpage::getTime()
 {
 	return time;
 }
-
-
 
 
 #endif 
