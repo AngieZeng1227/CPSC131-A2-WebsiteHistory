@@ -72,14 +72,12 @@ void BrowserHistory::visitSite(Webpage newSite)
 			navHistory.pop_back();
 			numSites--;
 		}
-
-		sitesVisited.insert(navPos, newSite);
+	}
+	sitesVisited.insert(navPos, newSite);
 		navHistory.insert(navPos, newSite);
 		numSites++;
-
-		if (navHistory.size() != 1)
-			navPos++;
-	}
+	if (navHistory.size() != 1)
+		navPos++;
 }
 
 string BrowserHistory::back()
