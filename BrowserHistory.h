@@ -57,6 +57,7 @@ void BrowserHistory::readHistory(string fileName) {
 // Default Constructor
 BrowserHistory::BrowserHistory()
 {
+	navPos = navHistory.begin();
 	numSites = 0;
 }
 
@@ -66,10 +67,14 @@ void BrowserHistory::visitSite(Webpage newSite)
 	
 	while (navPos != (navHistory.end()--))
 	{
-		navHistory.pop_back();
+		if (numSites > 1)
+		{
+			navHistory.pop_back();
+			numSites--;
+		}
 
-		sitesVisited.push_back(newSite);
-		navHistory.push_back(newSite);
+		sitesVisited.insert(navPos, newSite);
+		navHistory.insert(navPos, newSite);
 		numSites++;
 
 		if (navHistory.size() != 1)
