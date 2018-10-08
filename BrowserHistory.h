@@ -65,7 +65,7 @@ BrowserHistory::BrowserHistory()
 void BrowserHistory::visitSite(Webpage newSite)
 {
 	
-	while (navPos != (navHistory.end()--))
+	while (navPos != --navHistory.end())
 	{
 		if (numSites > 1)
 		{
