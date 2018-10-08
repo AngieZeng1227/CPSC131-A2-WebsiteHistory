@@ -23,17 +23,20 @@ Webpage::Webpage()
 	
 }
 
+// Enter url and time visited into class
 Webpage::Webpage(const string& webpageUrl, const time_t& timeVisited)
 {
 	url = webpageUrl;
 	time = timeVisited;
 }
 
+// Return url
 string Webpage::getUrl()
 {
 	return url;
 }
 
+// Return time
 time_t Webpage::getTime()
 {
 	return time;
