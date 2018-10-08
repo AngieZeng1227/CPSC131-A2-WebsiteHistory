@@ -57,52 +57,55 @@ void BrowserHistory::readHistory(string fileName) {
 // Default Constructor
 BrowserHistory::BrowserHistory()
 {
-
+	numSites = 0;
 }
 
-void BrowserHistory::visitSite(Webpage newsite)
-{
 
+void BrowserHistory::visitSite(Webpage newSite)
+{
+	
+	while (navPos != (navHistory.end()--))
+	{
+		navHistory.pop_back();
+
+		sitesVisited.insert(navPos, newSite);
+		navHistory.insert(navPos, newSite);
+		numSites++;
+
+		if (navHistory.size() != 1)
+			navPos++;
+	}
 }
 
 string BrowserHistory::back()
 {
-
-
+	navPos--;
+	return navPos->getUrl;
 }
 
-//
 string BrowserHistory::forward()
 {
-
-
+	navPos++;
+	return navPos->getUrl;
 }
 
-//
-void BrowserHistory::readHistory(string filename)
-{
 
-
-
-}
-
-//
 string BrowserHistory::getUrl()
 {
-
-
+	if (navHistory.empty()) 
+		throw std::logic_error("Empty website history.");
+	return navPos->getUrl;
+	
 }
 
-// The getNavSize() function 
-size_t BrowserHistory::getNavSize()
-{
-
-}
-
-// The getSitesVisited() function 
 list<Webpage> BrowserHistory::getSitesVisited()
 {
-
-
+	return sitesVisited;
 }
+
+size_t BrowserHistory::getNavSize()
+{
+	return (navHistory.size());
+}
+
 #endif
